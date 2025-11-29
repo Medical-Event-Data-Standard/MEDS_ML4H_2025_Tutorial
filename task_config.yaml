@@ -1,0 +1,63 @@
+predicates:
+  icu_admission:
+    code: { regex: "^ICU_ADMISSION//.*" }
+  icu_discharge:
+    code: { regex: "^ICU_DISCHARGE//.*" }
+  death:
+    code: { regex: "MEDS_DEATH.*" }
+
+  # CMO predicates
+  cmo_1:
+    code: { any: ["LAB//220001//UNK", "LAB//223758//UNK"] }
+    text_value: "Comfort measures only"
+  cmo_2:
+    code: { any: ["LAB//220001//UNK", "LAB//223758//UNK"] }
+    text_value: "Comfort care (CMO, Comfort Measures)"
+
+  # DNR predicates
+  dnr_1:
+    code: { any: ["LAB//220001//UNK", "LAB//223758//UNK"] }
+    text_value: "DNR / DNI"
+  dnr_2:
+    code: { any: ["LAB//220001//UNK", "LAB//223758//UNK"] }
+    text_value: "DNAR (Do Not Attempt Resuscitation)  [DNR]"
+  dnr_3:
+    code: { any: ["LAB//220001//UNK", "LAB//223758//UNK"] }
+    text_value: "DNAR (Do Not Attempt Resuscitation) [DNR] / DNI"
+  dnr_4:
+    code: { any: ["LAB//220001//UNK", "LAB//223758//UNK"] }
+    text_value: "DNR (do not resuscitate)"
+
+  # derived predicates
+  cmo:
+    expr: or(cmo_1, cmo_2)
+  dnr:
+    expr: or(dnr_1, dnr_2, dnr_3, dnr_4)
+
+trigger: icu_admission
+
+windows:
+  input:
+    start: null
+    end: trigger + 24h
+    start_inclusive: True
+    end_inclusive: True
+    index_timestamp: end
+    has:
+      cmo: (None, 0) # Exclude patients on comfort measures only
+      dnr: (None, 0) # Exclude patients with DNR orders
+  gap:
+    start: trigger
+    end: start + 30h
+    start_inclusive: False
+    end_inclusive: True
+    has:
+      icu_discharge: (None, 0)
+  target:
+    start: trigger
+    end: start + 3d
+    start_inclusive: True
+    end_inclusive: True
+    label: icu_discharge
+    has:
+      death: (None, 0)
