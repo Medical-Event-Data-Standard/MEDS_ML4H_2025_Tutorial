@@ -6,6 +6,17 @@ In general, this repository will not be updated after ML4H 2025, and is not expe
 directly useful for tutorial attendees other than as a source to download files when using the Colab notebooks
 containing the interactive tutorial content.
 
+> [!NOTE]
+> GitHub shows a subset of the tutorial notebooks as having an error due to missing metadata state. This is due
+> to a [bug in the GitHub notebook viewer](https://github.com/orgs/community/discussions/155944) and does not
+> indicate an actual problem with the notebooks themselves. The notebooks can be accessed and run without issue
+> via Google Colab using the links provided both in the notebooks and below:
+>   - [What is MEDS?](https://colab.research.google.com/github/Medical-Event-Data-Standard/MEDS_ML4H_2025_Tutorial/blob/main/jupyter_notebooks/What_is_MEDS.ipynb)
+>   - [MEDS Extract](https://colab.research.google.com/github/Medical-Event-Data-Standard/MEDS_ML4H_2025_Tutorial/blob/main/jupyter_notebooks/MEDS_Extract.ipynb)
+>   - [Extract a Prediction Task](https://colab.research.google.com/github/Medical-Event-Data-Standard/MEDS_ML4H_2025_Tutorial/blob/main/jupyter_notebooks/Extract_a_Prediction_Task.ipynb)
+>   - [Build a Model (Tabular Baseline)](https://colab.research.google.com/github/Medical-Event-Data-Standard/MEDS_ML4H_2025_Tutorial/blob/main/jupyter_notebooks/Build_a_Model_(Tabular_Baseline).ipynb)
+>   - [Build a Model (NN)](https://colab.research.google.com/github/Medical-Event-Data-Standard/MEDS_ML4H_2025_Tutorial/blob/main/jupyter_notebooks/Build_a_Model_(NN).ipynb)
+
 ## Files
 
 This repository contains the following files:
