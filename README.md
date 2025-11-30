@@ -61,9 +61,15 @@ aces-cli \
 ```
 
 
-### Step 3: Zip the Data
+### Step 3: Zip the labels
 
 ```bash
 # Zip the MEDS data directory
 zip -r MEDS_data.zip MEDS_data
 ```
+
+## Running the Tutorial Notebooks
+The tutorial notebooks are designed for use in Google Colab. There are links via the "Open in Colab" badges at
+the top of each notebook to open them in that platform. To run them locally, you will need to use python 3.13
+or lower and ensure that the `tree` package is installed in your local machine via, e.g., `sudo apt-get install
+tree` (for linux).
