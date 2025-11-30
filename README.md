@@ -62,7 +62,7 @@ pip install --quiet es-aces==0.7.1
 aces-cli \
     config_path=task_config.yaml \
     cohort_name="short_LOS" \
-    cohort_dir="MEDS_data/labels" \
+    cohort_dir="labels" \
     data=sharded \
     data.standard=meds \
     data.root=MEDS_data/data \
@@ -76,7 +76,7 @@ aces-cli \
 
 ```bash
 # Zip the MEDS data directory
-zip -r MEDS_data.zip MEDS_data
+zip -r labels.zip labels
 ```
 
 ## Running the Tutorial Notebooks
